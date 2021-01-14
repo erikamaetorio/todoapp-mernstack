@@ -39,10 +39,10 @@ export default class CreateTodo extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    console.log(`Form submitted:`);
-    console.log(`Description: ${this.state.description}`);
-    console.log(`Assigned: ${this.state.assigned}`);
-    console.log(`Priority: ${this.state.priority}`);
+    // console.log(`Form submitted:`);
+    // console.log(`Description: ${this.state.description}`);
+    // console.log(`Assigned: ${this.state.assigned}`);
+    // console.log(`Priority: ${this.state.priority}`);
 
     const newTodoItem = {
       description: this.state.description,
