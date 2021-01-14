@@ -15,10 +15,9 @@ function App() {
     <Router>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="https://google.com" target="_blank">
+          <a class="navbar-brand" href="/">
             <img src={ logo } width="30" height="30" alt=""/>
           </a>
-          <Link to="/" className="navbar-brand">To-Do App</Link>
           <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
