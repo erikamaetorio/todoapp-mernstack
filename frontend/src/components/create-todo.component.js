@@ -1,21 +1,42 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
+const Category = props => (
+  <option value={props.category.name}>{props.category.name}</option>
+)
+
 export default class CreateTodo extends Component {
   constructor(props) {
     super(props);
 
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeAssigned = this.onChangeAssigned.bind(this);
+    this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onChangePriority = this.onChangePriority.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       description: '',
-      assigned: '',
+      categories: [],
       priority: '',
       completed: false
     }
+  }
+
+  componentDidMount() {
+    let getCategoryListUrl = 'http://localhost:4000/todos/categories';
+    axios.get(getCategoryListUrl)
+      .then(response => {
+        this.setState({ categories: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  categoryList() {
+    return this.state.categories.map((currentCategory, i) => {
+      return <Category category={currentCategory} key={i} />;
+    });
   }
 
   onChangeDescription(e) {
@@ -24,9 +45,9 @@ export default class CreateTodo extends Component {
     });
   }
 
-  onChangeAssigned(e) {
+  onChangeCategory(e) {
     this.setState({
-      assigned: e.target.value
+      category: e.target.value
     });
   }
 
@@ -46,7 +67,7 @@ export default class CreateTodo extends Component {
 
     const newTodoItem = {
       description: this.state.description,
-      assigned: this.state.assigned,
+      category: this.state.category,
       priority: this.state.priority,
       completed: this.state.completed
     }
@@ -58,7 +79,7 @@ export default class CreateTodo extends Component {
 
     this.setState({
       description: '',
-      assigned: '',
+      category: '',
       priority: '',
       completed: false
     })
@@ -78,13 +99,10 @@ export default class CreateTodo extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Responsible: </label>
-                        <input 
-                                type="text" 
-                                className="form-control"
-                                value={this.state.assigned}
-                                onChange={this.onChangeAssigned}
-                                />
+                        <label>Category: </label>
+                        <select value={this.state.category} onChange={this.onChangeCategory}>
+                            { this.categoryList() }
+                        </select>
                     </div>
                     <div className="form-group">
                         <div className="form-check form-check-inline">

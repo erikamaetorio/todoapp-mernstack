@@ -15,10 +15,16 @@ router.route('/')
 router.route('/:id')
     .get(todoController.getItem);
 
-router.route('/update/:id')
-    .post(todoController.updateItem);
+router.route('/complete/:id')
+    .post(todoController.completeItem);
 
 router.route('/add')
     .post(todoController.addItem);
+
+router.route('/categories') //fix
+    .get(todoController.getCategoryList);
+
+router.route('/add/category')
+    .post(todoController.addCategory);
 
 module.exports = router;

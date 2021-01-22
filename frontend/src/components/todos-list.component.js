@@ -5,10 +5,9 @@ import axios from 'axios';
 const Todo = props => (
   <tr>
     <td class={props.todo.completed ? 'completed' : ''}>{props.todo.description}</td>
-    <td class={props.todo.completed ? 'completed' : ''}>{props.todo.assigned}</td>
     <td class={props.todo.completed ? 'completed' : ''}>{props.todo.priority}</td>
     <td>
-      <Link to={'/edit/'+props.todo._id}>Edit</Link>
+      {/* <Link to={'/complete/'+props.todo._id}>Complete</Link> */}
     </td>
   </tr>
 )
@@ -45,7 +44,6 @@ export default class TodosList extends Component {
             <thead>
                 <tr>
                     <th>Description</th>
-                    <th>Assigned</th>
                     <th>Priority</th>
                     <th>Action</th>
                 </tr>

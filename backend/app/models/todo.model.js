@@ -4,7 +4,7 @@ let TodoSchema = new mongoose.Schema({
   description: {
     type: String
   },
-  assigned: {
+  category: {
     type: String
   },
   priority: {
