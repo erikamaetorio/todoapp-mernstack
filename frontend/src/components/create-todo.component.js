@@ -100,7 +100,7 @@ export default class CreateTodo extends Component {
                     </div>
                     <div className="form-group">
                         <label>Category: </label>
-                        <select value={this.state.category} onChange={this.onChangeCategory}>
+                        <select class="form-control" value={this.state.category} onChange={this.onChangeCategory}>
                             { this.categoryList() }
                         </select>
                     </div>
