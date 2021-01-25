@@ -1,7 +1,6 @@
 'use strict';
 
 let Todo = require('../models/todo.model');
-let Category = require('../models/category.model');
 
 exports.getList = (req, res) => {
     Todo.find(function(err, todos) {
@@ -20,27 +19,18 @@ exports.getItem = (req, res) => {
     });
 }
 
-exports.getCategoryList = (req, res) => { //fix
-    console.log(req);
-    console.log("here");
-    Category.find(function(err, categories) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(categories);
-        }
-    });
-}
-
-exports.completeItem = (req, res) => {
+exports.updateItem = (req, res) => {
     Todo.findById(req.params.id, function(err, todo) {
         if (!todo)
             res.status(404).send("data is not found");
         else
+            todo.description = req.body.description;
+            todo.category = req.body.category;
             todo.priority = req.body.priority;
-    
+            todo.completed = req.body.completed;
+
             todo.save().then(todo => {
-                res.json('To-do item completed!');
+                res.json('To-do item updated!');
             })
             .catch(err => {
                 res.status(400).send("Update Error");
@@ -53,17 +43,6 @@ exports.addItem = (req, res) => {
     todo.save()
         .then(todo => {
             res.status(200).json({'message': 'To-do item added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('Add Error');
-        });
-}
-
-exports.addCategory = (req, res) => {
-    let category = new Category(req.body);
-    category.save()
-        .then(category => {
-            res.status(200).json({'message': 'Category item added successfully'});
         })
         .catch(err => {
             res.status(400).send('Add Error');

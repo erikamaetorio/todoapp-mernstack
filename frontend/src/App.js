@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 //components
 import CreateTodo from "./components/create-todo.component";
-import CompleteTodo from "./components/complete-todo.component";
+import EditTodo from "./components/edit-todo.component";
 import TodosList from "./components/todos-list.component";
 
 import logo from './logo.png';
@@ -18,19 +18,17 @@ function App() {
           <a class="navbar-brand" href="/">
             <img src={ logo } width="30" height="30" alt=""/>
           </a>
-          <div className="collapse navbar-collapse">
+          {/* <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
                   <Link to="/" className="nav-link">To-Do List</Link>
                 </li>
-                <li className="navbar-item">
-                  <Link to="/create" className="nav-link">Create To-Do item</Link>
-                </li>
               </ul>
-          </div>
+          </div> */}
         </nav>
         <br/>
         <Route path="/" exact component={TodosList} />
+        <Route path="/edit/:id" component={EditTodo} />
         <Route path="/create" component={CreateTodo} />
       </div>
     </Router>

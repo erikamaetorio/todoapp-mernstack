@@ -7,6 +7,7 @@ const PORT = 4000;
 const config = require("./config");
 
 const todoRoutes = require('./app/routes/todo');
+const categoryRoutes = require('./app/routes/category');
 
 app.use(cors());
 
@@ -23,6 +24,7 @@ mongoose.connect(config.mongoUri, { useNewUrlParser: true, useUnifiedTopology: t
 });
 
 app.use('/todos', todoRoutes);
+app.use('/categories', categoryRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server is running on Port: ${PORT}`);

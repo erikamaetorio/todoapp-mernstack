@@ -2,20 +2,23 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 const Category = props => (
-  <option value={props.category.name}>{props.category.name}</option>
+    <option value={props.category.name}>{props.category.name}</option>
 )
 
-export default class CreateTodo extends Component {
+export default class EditTodo extends Component {
+
   constructor(props) {
     super(props);
 
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onChangePriority = this.onChangePriority.bind(this);
+    this.onChangeCompleted = this.onChangeCompleted.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       description: '',
+      category: '',
       categories: [],
       priority: '',
       completed: false
@@ -23,14 +26,28 @@ export default class CreateTodo extends Component {
   }
 
   componentDidMount() {
+    let getTodoItemUrl = 'http://localhost:4000/todos/'+this.props.match.params.id;
+    axios.get(getTodoItemUrl)
+        .then(response => {
+            this.setState({
+                description: response.data.description,
+                category: response.data.category,
+                priority: response.data.priority,
+                completed: response.data.completed
+            })   
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
     let getCategoryListUrl = 'http://localhost:4000/categories';
     axios.get(getCategoryListUrl)
-      .then(response => {
+        .then(response => {
         this.setState({ categories: response.data });
-      })
-      .catch((error) => {
+        })
+        .catch((error) => {
         console.log(error);
-      });
+        });
   }
 
   categoryList() {
@@ -41,54 +58,49 @@ export default class CreateTodo extends Component {
 
   onChangeDescription(e) {
     this.setState({
-      description: e.target.value
+        description: e.target.value
     });
   }
 
   onChangeCategory(e) {
-    this.setState({
-      category: e.target.value
-    });
+      this.setState({
+          category: e.target.value
+      });
   }
 
   onChangePriority(e) {
-    this.setState({
-      priority: e.target.value
-    });
+      this.setState({
+          priority: e.target.value
+      });
+  }
+
+  onChangeCompleted(e) {
+      this.setState({
+          completed: !this.state.completed
+      });
   }
 
   onSubmit(e) {
-    e.preventDefault();
+      e.preventDefault();
+      const obj = {
+          description: this.state.description,
+          category: this.state.category,
+          priority: this.state.priority,
+          completed: this.state.completed
+      };
+      //console.log(obj);
 
-    // console.log(`Form submitted:`);
-    // console.log(`Description: ${this.state.description}`);
-    // console.log(`Assigned: ${this.state.assigned}`);
-    // console.log(`Priority: ${this.state.priority}`);
+      let updateTodoItemUrl = 'http://localhost:4000/todos/update/'+this.props.match.params.id;
+      axios.post(updateTodoItemUrl, obj)
+          .then(res => console.log(res.data));
 
-    const newTodoItem = {
-      description: this.state.description,
-      category: this.state.category,
-      priority: this.state.priority,
-      completed: this.state.completed
-    }
-
-    const createTodoItemUrl = 'http://localhost:4000/todos/add';
-
-    axios.post(createTodoItemUrl, newTodoItem)
-      .then(res => console.log(res.data));
-
-    this.setState({
-      description: '',
-      category: '',
-      priority: '',
-      completed: false
-    })
+      this.props.history.push('/');
   }
 
   render () {
     return(
-      <div style={{marginTop: 10}}>
-                <h3>Create New To-Do Item</h3>
+      <div>
+                <h3 align="center">Update Todo</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
                         <label>Description: </label>
@@ -139,9 +151,24 @@ export default class CreateTodo extends Component {
                             <label className="form-check-label">High</label>
                         </div>
                     </div>
+                    <div className="form-check">
+                        <input  className="form-check-input"
+                                id="completedCheckbox"
+                                type="checkbox"
+                                name="completedCheckbox"
+                                onChange={this.onChangeCompleted}
+                                checked={this.state.completed}
+                                value={this.state.completed}
+                                />
+                        <label className="form-check-label" htmlFor="completedCheckbox">
+                            Completed
+                        </label>                        
+                    </div>
+
+                    <br />
 
                     <div className="form-group">
-                        <input type="submit" value="Create Todo" className="btn btn-primary" />
+                        <input type="submit" value="Update Todo" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
