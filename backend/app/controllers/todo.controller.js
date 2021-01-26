@@ -51,7 +51,7 @@ exports.addItem = (req, res) => {
 }
 
 exports.deleteItem = (req, res) => {
-    Todo.deleteOne(req.params.id, function(err) {
+    Todo.findByIdAndDelete(req.params.id, function(err) {
         if(err) {
             console.log(err);
             res.status(400).json({'error_message':'Failed to Delete To-do Item'})
