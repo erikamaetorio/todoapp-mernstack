@@ -6,8 +6,9 @@ exports.getCategoryList = (req, res) => {
     Category.find(function(err, categories) {
         if (err) {
             console.log(err);
+            res.status(404).json({'error_message': 'Failed to fetch Category List'});
         } else {
-            res.json(categories);
+            res.status(200).json(categories);
         }
     });
 }
@@ -19,6 +20,6 @@ exports.addCategory = (req, res) => {
             res.status(200).json({'message': 'Category item added successfully'});
         })
         .catch(err => {
-            res.status(400).send('Add Error');
+            res.status(400).json({'message': 'Failed to Add Category Item'});
         });
 }

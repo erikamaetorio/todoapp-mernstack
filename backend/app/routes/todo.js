@@ -13,12 +13,15 @@ router.route('/')
     .get(todoController.getList);
     
 router.route('/:id')
-    .get(todoController.getItem);
+    .get(todoController.getItem); //remove
 
 router.route('/update/:id')
     .post(todoController.updateItem);
 
 router.route('/add')
     .post(todoController.addItem);
+
+router.route('/delete/:id')
+    .put(todoController.deleteItem);
 
 module.exports = router;
