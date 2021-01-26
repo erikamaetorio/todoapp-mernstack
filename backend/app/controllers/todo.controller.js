@@ -46,7 +46,7 @@ exports.addItem = (req, res) => {
             res.status(200).json({'message': 'To-do item added successfully'});
         })
         .catch(err => {
-            res.status(400).json({'error_Finmessage':'Failed to Add Item'});
+            res.status(400).json({'error_message':'Failed to Add Item'});
         });
 }
 
@@ -54,7 +54,7 @@ exports.deleteItem = (req, res) => {
     Todo.deleteOne(req.params.id, function(err) {
         if(err) {
             console.log(err);
-            res.status(400).json({'message':'Failed to Delete To-do Item'})
+            res.status(400).json({'error_message':'Failed to Delete To-do Item'})
         } else {
             res.status(200).json({'message': 'To-do item deleted successfully'});
         }
