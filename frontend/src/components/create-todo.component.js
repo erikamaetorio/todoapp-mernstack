@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Category = props => (
   <option value={props.category.name}>{props.category.name}</option>
@@ -16,6 +19,7 @@ export default class CreateTodo extends Component {
 
     this.state = {
       description: '',
+      category: '',
       categories: [],
       priority: '',
       completed: false
@@ -83,6 +87,8 @@ export default class CreateTodo extends Component {
       priority: '',
       completed: false
     })
+
+    this.props.history.push('/');
   }
 
   render () {
@@ -100,9 +106,17 @@ export default class CreateTodo extends Component {
                     </div>
                     <div className="form-group">
                         <label>Category: </label>
-                        <select class="form-control" value={this.state.category} onChange={this.onChangeCategory}>
-                            { this.categoryList() }
-                        </select>
+                        <div className="row">
+                          <div className="col-md-10">
+                            <select class="form-control" value={this.state.category} onChange={this.onChangeCategory}>
+                            <option value="" selected disabled hidden>Choose here</option>
+                                { this.categoryList() }
+                            </select>
+                          </div>
+                          <div className="col-md-2">
+                            <button type="button" class="btn btn-success"><Link to="/add-category" style={{ color: 'inherit', textDecoration: 'inherit' }}><FontAwesomeIcon icon={faPlus} color="white"/> Category</Link></button>
+                          </div>
+                        </div>
                     </div>
                     <div className="form-group">
                         <div className="form-check form-check-inline">

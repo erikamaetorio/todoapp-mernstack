@@ -13,7 +13,7 @@ router.route('/')
     .get(todoController.getList);
     
 router.route('/:id')
-    .get(todoController.getItem); //remove
+    .get(todoController.getItem);
 
 router.route('/update/:id')
     .post(todoController.updateItem);

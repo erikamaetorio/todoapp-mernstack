@@ -18,7 +18,7 @@ exports.getItem = (req, res) => {
     Todo.findById(id, function(err, todo) {
         res.json(todo);
     });
-} //remove
+}
 
 exports.updateItem = (req, res) => {
     Todo.findById(req.params.id, function(err, todo) {

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+
+import "../styles.css";
 
 const Todo = props => (
   <tr>
@@ -8,7 +12,10 @@ const Todo = props => (
     <td class={props.todo.completed ? 'completed' : ''}>{props.todo.category}</td>
     <td class={props.todo.completed ? 'completed' : ''}>{props.todo.priority}</td>
     <td>
-      <Link to={'/edit/'+props.todo._id}>Edit</Link>
+      <div class="row">
+        <Link to={'/edit/'+props.todo._id}><div class="col-sm-3"><FontAwesomeIcon icon={faEdit} color="grey"/></div></Link>
+        <Link to={'/delete/'+props.todo._id}><div class="col-sm-5 col-sm-offset-2"><FontAwesomeIcon icon={faTrash} color="red"/></div></Link>
+      </div>
     </td>
   </tr>
 )
@@ -45,7 +52,7 @@ export default class TodosList extends Component {
             <h3>To-Do List</h3>
           </div>
           <div class="col-sm-2 col-12">
-            <button type="button" class="btn btn-success"><Link to="/create" style={{ color: 'inherit', textDecoration: 'inherit' }}>Add item</Link></button>
+            <button type="button" class="btn btn-success"><Link to="/create" style={{ color: 'inherit', textDecoration: 'inherit' }}><FontAwesomeIcon icon={faPlus} color="white"/> To-Do</Link></button>
           </div>
         </div>
         <table className="table table-striped" style={{ marginTop: 20 }} >

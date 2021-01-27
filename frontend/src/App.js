@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateTodo from "./components/create-todo.component";
 import EditTodo from "./components/edit-todo.component";
 import TodosList from "./components/todos-list.component";
+import DeleteTodo from "./components/delete-todo.component";
+import CreateCategoryOne from "./components/add-category-for-create.component";
 
 import logo from './logo.png';
 console.log(logo);
@@ -30,6 +32,8 @@ function App() {
         <Route path="/" exact component={TodosList} />
         <Route path="/edit/:id" component={EditTodo} />
         <Route path="/create" component={CreateTodo} />
+        <Route path="/delete/:id" component={DeleteTodo} />
+        <Route path="/add-category" component={CreateCategoryOne}/>
       </div>
     </Router>
   );
