@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {createBrowserHistory} from 'history';
 
 //components
 import CreateTodo from "./components/create-todo.component";
@@ -10,7 +11,8 @@ import DeleteTodo from "./components/delete-todo.component";
 import CreateCategoryOne from "./components/add-category-for-create.component";
 
 import logo from './logo.png';
-console.log(logo);
+
+export const history = createBrowserHistory({ forceRefresh : true });
 
 function App() {
   return (

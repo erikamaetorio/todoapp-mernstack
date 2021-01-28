@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { history } from '../App';
 
 export default class AddCategoryForCreateTodo extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ export default class AddCategoryForCreateTodo extends Component {
       name: ''
     })
 
-    this.props.history.push('/create');
+    history.push('/create');
   }
 
   render () {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { history } from '../App';
 
 const Category = props => (
     <option value={props.category.name}>{props.category.name}</option>
@@ -94,7 +95,7 @@ export default class EditTodo extends Component {
       axios.post(updateTodoItemUrl, obj)
           .then(res => console.log(res.data));
 
-      this.props.history.push('/');
+      history.push('/');
   }
 
   render () {

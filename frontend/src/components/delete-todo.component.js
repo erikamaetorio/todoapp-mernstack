@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { history } from '../App';
 
 export default class DeleteTodo extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ export default class DeleteTodo extends Component {
           axios.put(deleteTodoItemUrl)
               .then(res => console.log(res.data));
     
-          this.props.history.push('/');
+          history.push('/');
       }
     
       render () {

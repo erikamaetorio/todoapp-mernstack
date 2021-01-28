@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { history } from '../App';
 
 const Category = props => (
   <option value={props.category.name}>{props.category.name}</option>
@@ -88,7 +89,7 @@ export default class CreateTodo extends Component {
       completed: false
     })
 
-    this.props.history.push('/');
+    history.push('/');
   }
 
   render () {
