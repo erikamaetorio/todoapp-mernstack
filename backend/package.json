@@ -5,15 +5,25 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "unit-test": "mocha --exit",
+    "unit-test-html-report": " mocha --reporter mochawesome --exit",
+    "coverage-test": "nyc --reporter=lcov --reporter=text npm run unit-test",
+    "code-scan": "sonar-scanner.bat"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mocha": "^8.2.1",
     "mongoose": "^5.11.11",
-    "nodemon": "^2.0.7"
+    "nock": "^13.0.7",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
+    "sinon": "^7.5.0",
+    "sinon-mongoose": "^2.3.0"
   }
 }

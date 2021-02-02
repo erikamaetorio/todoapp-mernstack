@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const mongoose = require('mongoose');
 const PORT = 4000;
 
-const config = require("./config");
+const conn = require('./db');
 
 const todoRoutes = require('./app/routes/todo');
 const categoryRoutes = require('./app/routes/category');
@@ -15,13 +14,9 @@ app.use(express.urlencoded({ extended: true})); //parses application/x-www-form-
 app.use(express.json()); //parses json request
 
 //connect to MongoDB
-mongoose.connect(config.mongoUri, { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
-  if(!error) {
-    console.log("Connected to MongoDB");
-  } else {
-    console.log(error);
-  }
-});
+conn.connect()
+      .then(() => console.log('Connected to DB'))
+      .catch((err) => console.log(err));
 
 app.use('/todos', todoRoutes);
 app.use('/categories', categoryRoutes)
@@ -29,3 +24,5 @@ app.use('/categories', categoryRoutes)
 app.listen(PORT, () => {
   console.log(`Server is running on Port: ${PORT}`);
 });
+
+module.exports = app;
