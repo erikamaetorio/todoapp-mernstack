@@ -8,7 +8,7 @@
     "unit-test": "mocha --exit",
     "unit-test-html-report": " mocha --reporter mochawesome --exit",
     "coverage-test": "nyc --reporter=lcov --reporter=text npm run unit-test",
-    "code-scan": "sonar-scanner.bat"
+    "code-scan": "sonar-scanner"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
     "mongoose": "^5.11.11",
     "nock": "^13.0.7",
     "nodemon": "^2.0.7",

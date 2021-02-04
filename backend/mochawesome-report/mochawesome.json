@@ -1,0 +1,1004 @@
+{
+  "stats": {
+    "suites": 13,
+    "tests": 12,
+    "passes": 12,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-02-04T03:31:46.969Z",
+    "end": "2021-02-04T03:31:47.028Z",
+    "duration": 59,
+    "testsRegistered": 12,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a54493f3-1304-407a-9b68-8b76f5e7a3cb",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f1a527f2-a7dd-4af6-9e40-c4995c1ba175",
+          "title": "To Do App",
+          "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+          "file": "/test/todoappTest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a4bcc927-79b1-44b6-a3d6-e87e39f391a6",
+              "title": "TD1001 - Retrieve All To-do items",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD1001 - Retrieve All To-do items\"",
+                  "fullTitle": "To Do App TD1001 - Retrieve All To-do items \"before all\" hook in \"TD1001 - Retrieve All To-do items\"",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = [\n    {\n        \"_id\": \"600e2623a57df004b4b4137e\",\n        \"description\": \"Jedi Seminar\",\n        \"category\": \"Training\",\n        \"priority\": \"Medium\",\n        \"completed\": false,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"601239894e7a56078132c106\",\n        \"description\": \"Jedi Talks\",\n        \"category\": \"Relax\",\n        \"priority\": \"Low\",\n        \"completed\": true,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"60125d9e30aef60e40b4b87d\",\n        \"description\": \"Jedi Study\",\n        \"category\": \"Study\",\n        \"priority\": \"High\",\n        \"completed\": false,\n        \"__v\": 0\n    }\n];\nTodoMock.expects('find').yields(null, result);\ndone();",
+                  "err": {},
+                  "uuid": "d63b5b9f-b6e8-40e2-aff7-74ed4cd456cd",
+                  "parentUUID": "a4bcc927-79b1-44b6-a3d6-e87e39f391a6",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD1001 - Retrieve All To-do items\"",
+                  "fullTitle": "To Do App TD1001 - Retrieve All To-do items \"after all\" hook in \"TD1001 - Retrieve All To-do items\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "9d817d78-7c8c-42f1-98bb-61481c835404",
+                  "parentUUID": "a4bcc927-79b1-44b6-a3d6-e87e39f391a6",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD1001 - Successfully retrieved to-do items",
+                  "fullTitle": "To Do App TD1001 - Retrieve All To-do items TD1001 - Successfully retrieved to-do items",
+                  "timedOut": false,
+                  "duration": 18,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .get('/todos')\n    .end((err, response) => {\n        var checkObj = [\n            {\n                \"_id\": \"600e2623a57df004b4b4137e\",\n                \"description\": \"Jedi Seminar\",\n                \"category\": \"Training\",\n                \"priority\": \"Medium\",\n                \"completed\": false,\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"601239894e7a56078132c106\",\n                \"description\": \"Jedi Talks\",\n                \"category\": \"Relax\",\n                \"priority\": \"Low\",\n                \"completed\": true,\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"60125d9e30aef60e40b4b87d\",\n                \"description\": \"Jedi Study\",\n                \"category\": \"Study\",\n                \"priority\": \"High\",\n                \"completed\": false,\n                \"__v\": 0\n            }\n        ];\n        response.should.have.status(200);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "af1be644-e4f8-4f57-9f32-0691080acef5",
+                  "parentUUID": "a4bcc927-79b1-44b6-a3d6-e87e39f391a6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "af1be644-e4f8-4f57-9f32-0691080acef5"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 18,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "cbb0a2f8-178c-474a-9889-c3b1b7270766",
+              "title": "TD1002 - Retrieve All To-do items",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD1002 - Retrieve All To-do items\"",
+                  "fullTitle": "To Do App TD1002 - Retrieve All To-do items \"before all\" hook in \"TD1002 - Retrieve All To-do items\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: false, error: \"Something went wrong\"};\nTodoMock.expects('find').yields(result, null);\ndone();",
+                  "err": {},
+                  "uuid": "137195a6-0bfc-43ba-a18c-5baffa3c52b8",
+                  "parentUUID": "cbb0a2f8-178c-474a-9889-c3b1b7270766",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD1002 - Retrieve All To-do items\"",
+                  "fullTitle": "To Do App TD1002 - Retrieve All To-do items \"after all\" hook in \"TD1002 - Retrieve All To-do items\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "39df406a-dbde-4ee3-852e-e1e3957f8c33",
+                  "parentUUID": "cbb0a2f8-178c-474a-9889-c3b1b7270766",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD1002 - Unsuccessfully retrieved to-do items",
+                  "fullTitle": "To Do App TD1002 - Retrieve All To-do items TD1002 - Unsuccessfully retrieved to-do items",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .get('/todos')\n    .end((err, response) => {\n        var checkObj = {'error_message': 'Failed to fetch To-do List'};\n        response.should.have.status(404);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "8ae60ab4-b064-49d3-89ae-eda0b077d087",
+                  "parentUUID": "cbb0a2f8-178c-474a-9889-c3b1b7270766",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "8ae60ab4-b064-49d3-89ae-eda0b077d087"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "d9070c57-b61f-4241-bfcd-284b49f638d9",
+              "title": "TD2001 - Add new To-do item",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD2001 - Add new To-do item\"",
+                  "fullTitle": "To Do App TD2001 - Add new To-do item \"before all\" hook in \"TD2001 - Add new To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = [{status: true}];\nTodoMock.expects('insertMany').yields(null, result)\ndone();",
+                  "err": {},
+                  "uuid": "e76680f2-c2ba-49a3-a721-b238f6e2b14d",
+                  "parentUUID": "d9070c57-b61f-4241-bfcd-284b49f638d9",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD2001 - Add new To-do item\"",
+                  "fullTitle": "To Do App TD2001 - Add new To-do item \"after all\" hook in \"TD2001 - Add new To-do item\"",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "6d04e823-8d91-4639-b2f5-7d7709021665",
+                  "parentUUID": "d9070c57-b61f-4241-bfcd-284b49f638d9",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD2001 - Successfully add new to-do item",
+                  "fullTitle": "To Do App TD2001 - Add new To-do item TD2001 - Successfully add new to-do item",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .post('/todos/add')\n    .end((err, response) => {\n        var checkObj = {'message': 'To-do item added successfully'};\n        response.should.have.status(200);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "c6b1618a-dd19-46d4-a8fe-afe85227806b",
+                  "parentUUID": "d9070c57-b61f-4241-bfcd-284b49f638d9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c6b1618a-dd19-46d4-a8fe-afe85227806b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "4c4c9463-d0c9-4718-9e5f-b700f3554f48",
+              "title": "TD2002 - Add new To-do item",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD2002 - Add new To-do item\"",
+                  "fullTitle": "To Do App TD2002 - Add new To-do item \"before all\" hook in \"TD2002 - Add new To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: false, error: \"Something went wrong\"};\nTodoMock.expects('insertMany').yields(result, null)\ndone();",
+                  "err": {},
+                  "uuid": "b41b66d0-3ac0-4940-9c19-c3bf36eb5029",
+                  "parentUUID": "4c4c9463-d0c9-4718-9e5f-b700f3554f48",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD2002 - Add new To-do item\"",
+                  "fullTitle": "To Do App TD2002 - Add new To-do item \"after all\" hook in \"TD2002 - Add new To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "304cbcea-5639-438a-b114-6bea9e58a159",
+                  "parentUUID": "4c4c9463-d0c9-4718-9e5f-b700f3554f48",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD2002 - Unsuccessfully add new to-do item",
+                  "fullTitle": "To Do App TD2002 - Add new To-do item TD2002 - Unsuccessfully add new to-do item",
+                  "timedOut": false,
+                  "duration": 3,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .post('/todos/add')\n    .end((err, response) => {\n        var checkObj = {'error_message':'Failed to Add Item'};\n        response.should.have.status(400);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "4897e5f3-24f6-4053-8034-c73b8e0a49af",
+                  "parentUUID": "4c4c9463-d0c9-4718-9e5f-b700f3554f48",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "4897e5f3-24f6-4053-8034-c73b8e0a49af"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "5deb6851-8cb7-46e9-9136-21fef132e847",
+              "title": "TD3001 - Edit To-do item",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD3001 - Edit To-do item\"",
+                  "fullTitle": "To Do App TD3001 - Edit To-do item \"before all\" hook in \"TD3001 - Edit To-do item\"",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: true};\nTodoMock.expects('updateOne').yields(null, result)\ndone();",
+                  "err": {},
+                  "uuid": "96ded0ed-b1c1-4792-a1ad-6de233bf7314",
+                  "parentUUID": "5deb6851-8cb7-46e9-9136-21fef132e847",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD3001 - Edit To-do item\"",
+                  "fullTitle": "To Do App TD3001 - Edit To-do item \"after all\" hook in \"TD3001 - Edit To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "2117300e-b77b-42e9-80c0-5b3dbcdd5c36",
+                  "parentUUID": "5deb6851-8cb7-46e9-9136-21fef132e847",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD3001 - Successfully edit to-do item",
+                  "fullTitle": "To Do App TD3001 - Edit To-do item TD3001 - Successfully edit to-do item",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .post('/todos/update/6018f25006369c1839ec7539')\n    .end((err, response) => {\n        var checkObj = {'message': 'To-do item updated!'};\n        response.should.have.status(200);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "1f8f61fd-69e1-4d93-94fe-984e35069cb6",
+                  "parentUUID": "5deb6851-8cb7-46e9-9136-21fef132e847",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1f8f61fd-69e1-4d93-94fe-984e35069cb6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "07aa3194-e1c1-49b9-94f0-db1f5abdf869",
+              "title": "TD3002 - Add new To-do item",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD3002 - Add new To-do item\"",
+                  "fullTitle": "To Do App TD3002 - Add new To-do item \"before all\" hook in \"TD3002 - Add new To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: false, error: \"Something went wrong\"};\nTodoMock.expects('updateOne').yields(result, null)\ndone();",
+                  "err": {},
+                  "uuid": "7b401023-5851-4026-b496-09c9039c01ff",
+                  "parentUUID": "07aa3194-e1c1-49b9-94f0-db1f5abdf869",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD3002 - Add new To-do item\"",
+                  "fullTitle": "To Do App TD3002 - Add new To-do item \"after all\" hook in \"TD3002 - Add new To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "e173eace-af9a-48dc-947c-98f79e127935",
+                  "parentUUID": "07aa3194-e1c1-49b9-94f0-db1f5abdf869",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD3002 - Unsuccessfully edit item",
+                  "fullTitle": "To Do App TD3002 - Add new To-do item TD3002 - Unsuccessfully edit item",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .post('/todos/update/6018f25006369c1839ec7539')\n    .end((err, response) => {\n        var checkObj = {'error_message':'Failed to Update To-do Item'};\n        response.should.have.status(400);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "ca71f3f8-bb36-44e5-aff3-1efa7b2f8a89",
+                  "parentUUID": "07aa3194-e1c1-49b9-94f0-db1f5abdf869",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ca71f3f8-bb36-44e5-aff3-1efa7b2f8a89"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "e27235be-e9b5-42de-881e-80a95bf60027",
+              "title": "TD4001 - Delete To-do item",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD4001 - Delete To-do item\"",
+                  "fullTitle": "To Do App TD4001 - Delete To-do item \"before all\" hook in \"TD4001 - Delete To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: true};\nTodoMock.expects('findByIdAndDelete').yields(null)\ndone();",
+                  "err": {},
+                  "uuid": "6b0bbac4-22e2-438c-bf25-229b5a6ec29b",
+                  "parentUUID": "e27235be-e9b5-42de-881e-80a95bf60027",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD4001 - Delete To-do item\"",
+                  "fullTitle": "To Do App TD4001 - Delete To-do item \"after all\" hook in \"TD4001 - Delete To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "8b452540-0036-45b1-a4fd-9212219825cc",
+                  "parentUUID": "e27235be-e9b5-42de-881e-80a95bf60027",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD4001 - Successfully delete to-do item",
+                  "fullTitle": "To Do App TD4001 - Delete To-do item TD4001 - Successfully delete to-do item",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .put('/todos/delete/600e2623a57df004b4b4137e')\n    .end((err, response) => {\n        var checkObj = {'message': 'To-do item deleted successfully'};\n        response.should.have.status(200);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "e4badaaa-f053-41c0-bf3e-faef28cec257",
+                  "parentUUID": "e27235be-e9b5-42de-881e-80a95bf60027",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e4badaaa-f053-41c0-bf3e-faef28cec257"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "22afefcc-e5a8-40e3-a875-87567c7399f1",
+              "title": "TD4002 - Delete To-do item",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD4002 - Delete To-do item\"",
+                  "fullTitle": "To Do App TD4002 - Delete To-do item \"before all\" hook in \"TD4002 - Delete To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: false, error: \"Something went wrong\"};\nTodoMock.expects('findByIdAndDelete').yields(result)\ndone();",
+                  "err": {},
+                  "uuid": "9ff5f737-95ee-4b8f-8b69-8090d2d96a32",
+                  "parentUUID": "22afefcc-e5a8-40e3-a875-87567c7399f1",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD4002 - Delete To-do item\"",
+                  "fullTitle": "To Do App TD4002 - Delete To-do item \"after all\" hook in \"TD4002 - Delete To-do item\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "TodoMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "c6096e7a-b3e6-4deb-8da6-75e0ce8b3f19",
+                  "parentUUID": "22afefcc-e5a8-40e3-a875-87567c7399f1",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD4002 - Unsuccessfully delete to-do item",
+                  "fullTitle": "To Do App TD4002 - Delete To-do item TD4002 - Unsuccessfully delete to-do item",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .put('/todos/delete/600e2623a57df004b4b4137e')\n    .end((err, response) => {\n        var checkObj = {'error_message':'Failed to Delete To-do Item'};\n        response.should.have.status(400);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "051d2a44-c3a6-4b1b-b849-0148ec07fdba",
+                  "parentUUID": "22afefcc-e5a8-40e3-a875-87567c7399f1",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "051d2a44-c3a6-4b1b-b849-0148ec07fdba"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "7c771b0c-45f6-4136-90ca-aa062595c656",
+              "title": "TD1001 - Retrieve All Categories",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD1001 - Retrieve All Categories\"",
+                  "fullTitle": "To Do App TD1001 - Retrieve All Categories \"before all\" hook in \"TD1001 - Retrieve All Categories\"",
+                  "timedOut": false,
+                  "duration": 3,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = [\n    {\n        \"_id\": \"600a4444d661311214dcbe09\",\n        \"name\": \"Work\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"600a446dd661311214dcbe0a\",\n        \"name\": \"Training\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6010e41f9c42b708ed8c7848\",\n        \"name\": \"Relax\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"60125d9630aef60e40b4b87c\",\n        \"name\": \"Study\",\n        \"__v\": 0\n    }\n];\nCategoryMock.expects('find').yields(null, result);\ndone();",
+                  "err": {},
+                  "uuid": "1d6bcad2-8a60-4a7d-bc6a-81d0f7bd5f0e",
+                  "parentUUID": "7c771b0c-45f6-4136-90ca-aa062595c656",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD1001 - Retrieve All Categories\"",
+                  "fullTitle": "To Do App TD1001 - Retrieve All Categories \"after all\" hook in \"TD1001 - Retrieve All Categories\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "CategoryMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "042b35fc-a0e9-40f1-8ee6-3fe98d09f8dc",
+                  "parentUUID": "7c771b0c-45f6-4136-90ca-aa062595c656",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD5001 - Successfully retrieved category list",
+                  "fullTitle": "To Do App TD1001 - Retrieve All Categories TD5001 - Successfully retrieved category list",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .get('/categories')\n    .end((err, response) => {\n        var checkObj = [\n            {\n                \"_id\": \"600a4444d661311214dcbe09\",\n                \"name\": \"Work\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"600a446dd661311214dcbe0a\",\n                \"name\": \"Training\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"6010e41f9c42b708ed8c7848\",\n                \"name\": \"Relax\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"60125d9630aef60e40b4b87c\",\n                \"name\": \"Study\",\n                \"__v\": 0\n            }\n        ];\n        response.should.have.status(200);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "22149cfc-0fd3-4951-a828-c9373b520a68",
+                  "parentUUID": "7c771b0c-45f6-4136-90ca-aa062595c656",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "22149cfc-0fd3-4951-a828-c9373b520a68"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "dc530fb3-6ce9-42d0-b54d-15d62dc0d2a7",
+              "title": "TD5002 - Retrieve All Categories",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD5002 - Retrieve All Categories\"",
+                  "fullTitle": "To Do App TD5002 - Retrieve All Categories \"before all\" hook in \"TD5002 - Retrieve All Categories\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: false, error: \"Something went wrong\"};\nCategoryMock.expects('find').yields(result, null);\ndone();",
+                  "err": {},
+                  "uuid": "77ef2ed9-019f-4123-b8e3-9b57e8cacea4",
+                  "parentUUID": "dc530fb3-6ce9-42d0-b54d-15d62dc0d2a7",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD5002 - Retrieve All Categories\"",
+                  "fullTitle": "To Do App TD5002 - Retrieve All Categories \"after all\" hook in \"TD5002 - Retrieve All Categories\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "CategoryMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "54edcf82-fe18-44f4-8960-cf0317fe1a22",
+                  "parentUUID": "dc530fb3-6ce9-42d0-b54d-15d62dc0d2a7",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD5002 - Unsuccessfully retrieved category list",
+                  "fullTitle": "To Do App TD5002 - Retrieve All Categories TD5002 - Unsuccessfully retrieved category list",
+                  "timedOut": false,
+                  "duration": 3,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .get('/categories')\n    .end((err, response) => {\n        var checkObj = {'error_message': 'Failed to fetch Category List'};\n        response.should.have.status(404);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "aa89f6cd-0bf5-4964-9e0c-1700202ffb78",
+                  "parentUUID": "dc530fb3-6ce9-42d0-b54d-15d62dc0d2a7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "aa89f6cd-0bf5-4964-9e0c-1700202ffb78"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "5bb76877-9e79-47c7-9aa1-f737b6233133",
+              "title": "TD6001 - Add new Category",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD6001 - Add new Category\"",
+                  "fullTitle": "To Do App TD6001 - Add new Category \"before all\" hook in \"TD6001 - Add new Category\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = [{status: true}];\nCategoryMock.expects('insertMany').yields(null, result)\ndone();",
+                  "err": {},
+                  "uuid": "39d79ceb-c02a-44d1-ad8e-c71e8bab35d1",
+                  "parentUUID": "5bb76877-9e79-47c7-9aa1-f737b6233133",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD6001 - Add new Category\"",
+                  "fullTitle": "To Do App TD6001 - Add new Category \"after all\" hook in \"TD6001 - Add new Category\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "CategoryMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "75f4a620-015f-4385-af08-834d2d4c9660",
+                  "parentUUID": "5bb76877-9e79-47c7-9aa1-f737b6233133",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD6001 - Successfully add new category",
+                  "fullTitle": "To Do App TD6001 - Add new Category TD6001 - Successfully add new category",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .post('/categories/add')\n    .end((err, response) => {\n        var checkObj = {'message': 'Category item added successfully'};\n        response.should.have.status(200);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "c39061e6-1874-426d-8e6f-282448b00651",
+                  "parentUUID": "5bb76877-9e79-47c7-9aa1-f737b6233133",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c39061e6-1874-426d-8e6f-282448b00651"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "f3a43380-ca88-4472-9bd4-2ca946fc41c9",
+              "title": "TD6002 - Add new Category",
+              "fullFile": "/Users/erika/Documents/todoapp-mernstack/backend/test/todoappTest.js",
+              "file": "/test/todoappTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"TD6002 - Add new Category\"",
+                  "fullTitle": "To Do App TD6002 - Add new Category \"before all\" hook in \"TD6002 - Add new Category\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var result = {status: false, error: \"Something went wrong\"};\nCategoryMock.expects('insertMany').yields(result, null)\ndone();",
+                  "err": {},
+                  "uuid": "735b81a6-e665-4f2a-b02a-1369d0778109",
+                  "parentUUID": "f3a43380-ca88-4472-9bd4-2ca946fc41c9",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"TD6002 - Add new Category\"",
+                  "fullTitle": "To Do App TD6002 - Add new Category \"after all\" hook in \"TD6002 - Add new Category\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "CategoryMock.restore();\ndone();",
+                  "err": {},
+                  "uuid": "3958cf00-afb5-488f-98bc-55b21db4a566",
+                  "parentUUID": "f3a43380-ca88-4472-9bd4-2ca946fc41c9",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "TD6002 - Unsuccessfully add new category",
+                  "fullTitle": "To Do App TD6002 - Add new Category TD6002 - Unsuccessfully add new category",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "chai.request(app)\n    .post('/categories/add')\n    .end((err, response) => {\n        var checkObj = {'message': 'Failed to Add Category Item'};\n        response.should.have.status(400);\n        response.body.should.be.eql(checkObj);\n        done();\n    })",
+                  "err": {},
+                  "uuid": "04a271cc-2fef-4073-95c7-a3a9d0a01e56",
+                  "parentUUID": "f3a43380-ca88-4472-9bd4-2ca946fc41c9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "04a271cc-2fef-4073-95c7-a3a9d0a01e56"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.2.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
